@@ -27,12 +27,35 @@ const personalMovieDB = {
 	privat: false
 };
 
-const a = prompt('Один из последих просмотренных фильмов?', ''),
+/*const a = prompt('Один из последих просмотренных фильмов?', ''),
 		b = prompt('На сколько оцените его?', ''),
 		c = prompt('Один из последих просмотренных фильмов?', ''),
 		d = prompt('На сколько оцените его?', '');
 
 personalMovieDB.movies[a] = b;
-personalMovieDB.movies[c] = d;
+personalMovieDB.movies[c] = d;*/
+
+for (let i = 0; i < 2; i++) {
+	const a = prompt('Один из последих просмотренных фильмов?', ''),
+		b = prompt('На сколько оцените его?', '');
+
+	if (a != null && b != null && a != '' && b != '' && a.length < 50) {
+		personalMovieDB.movies[a] = b;
+		console.log('done');
+	} else {
+		console.log('error');
+		i--;
+	}
+}
+
+if (personalMovieDB.count < 10) {
+	console.log("Просмотрено довольно мало фильмов")
+} else if (personalMovieDB.count >= 10 && personalMovieDB.count <= 30) {
+	console.log("Классический зритель");
+} else if (personalMovieDB.count > 30) {
+	console.log('вы киноман');
+} else {
+	console.log('Error');
+}
 
 console.log(personalMovieDB);
